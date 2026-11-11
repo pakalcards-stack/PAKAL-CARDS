@@ -1,20 +1,17 @@
 # PAKAL CARDS
-Premium starter for pakalcards.com built with Next.js, TypeScript, Framer Motion and Supabase.
+שלד ראשוני לחנות ומשחק קלפים ישראלי, מבוסס Next.js, TypeScript, Framer Motion ו-Supabase.
 
-## GitHub
-Create a repository named `pakal-cards` and upload the contents of this folder.
+## הפעלה מקומית
+1. התקינו Node.js 20 LTS.
+2. הריצו `npm install`.
+3. העתיקו `.env.example` ל-`.env.local` והזינו את פרטי Supabase.
+4. הריצו `npm run dev` ופתחו `http://localhost:3000`.
 
-## Local
-```bash
-npm install
-npm run dev
-```
+## העלאה
+צרו Repository בשם `pakal-cards`, העלו את כל תוכן התיקייה וחברו אותו ל-Vercel. ב-Vercel הוסיפו את משתני הסביבה מתוך `.env.example`.
 
-## Vercel
-Import the GitHub repository into Vercel. Framework preset should detect Next.js automatically.
+## נכסים
+ראו `public/assets/README.md`. האתר כולל placeholders כדי שה-build יעבוד גם לפני הוספת התמונות.
 
-## Supabase
-Copy `.env.example` to `.env.local`, fill the two public values, then run `supabase/schema.sql` in Supabase SQL Editor.
-
-## Assets
-All images used by the current design are already under `public/assets`. No Error PDF files are included.
+## בסיס נתונים
+הריצו את `supabase/schema.sql` ב-Supabase SQL Editor. סכמת ההתחלה כוללת מוצרים ורשימת דיוור עם RLS.
