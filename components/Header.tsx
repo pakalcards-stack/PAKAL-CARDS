@@ -1,3 +1,1 @@
-'use client';
-import { Menu, ShoppingBag } from 'lucide-react';
-export default function Header(){return <header className="header"><a className="brand" href="#top">פק״ל</a><nav><a href="#game">המשחק</a><a href="#trails">המסלולים</a><a href="#about">אודות</a></nav><div className="actions"><button className="icon" aria-label="סל קניות"><ShoppingBag/></button><button className="icon mobile" aria-label="תפריט"><Menu/></button></div></header>}
+'use client';import Image from 'next/image';import {Menu,ShoppingBag} from 'lucide-react';export default function Header(){return <header className="topbar"><a href="#top"><Image src="/assets/logo.png" alt="פקל" width={155} height={64}/></a><nav><a href="#top">דף הבית</a><a href="#how">איך משחקים?</a><a href="#trails">המסלולים</a><a href="#shop">רכישה</a></nav><a className="topBuy" href="#shop"><ShoppingBag size={17}/> לרכישה</a><button className="hamb"><Menu/></button></header>}
