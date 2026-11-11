@@ -1,20 +1,20 @@
-# PAKAL CARDS
-Premium starter for pakalcards.com built with Next.js, TypeScript, Framer Motion and Supabase.
+# PAKAL CARDS V4
+גרסה מלאה ל-GitHub ול-Vercel, מבוססת Next.js ו-TypeScript.
 
-## GitHub
-Create a repository named `pakal-cards` and upload the contents of this folder.
+## עקרונות הגרסה
+- שימוש בלוגו המקורי בכל מופע מרכזי של פק״ל.
+- תמונת המוצר מוצגת עם `object-fit: contain`, ללא זום או חיתוך.
+- סמלי המשאבים המקוריים: מים, אוכל, זמן ומורל.
+- שלושת כרטיסי הכניסה ללא מספרים, עם מסגרת ירוקה, כחולה וכתומה.
+- גלריית נופים מלאה מהחומרים שסופקו.
+- מסלולי רכישה נפרדים ליחידים ולקבוצות.
+- טיפוגרפיה מבקשת Hadassah תחילה; אם הפונט אינו מותקן במכשיר, נעשה שימוש ב-Noto Serif Hebrew או David Libre. כדי להבטיח Hadassah בכל מחשב, הוסף קובץ פונט מורשה אל `public/fonts` והגדר `@font-face`.
 
-## Local
+## הפעלה
 ```bash
 npm install
 npm run dev
 ```
 
-## Vercel
-Import the GitHub repository into Vercel. Framework preset should detect Next.js automatically.
-
-## Supabase
-Copy `.env.example` to `.env.local`, fill the two public values, then run `supabase/schema.sql` in Supabase SQL Editor.
-
-## Assets
-All images used by the current design are already under `public/assets`. No Error PDF files are included.
+## העלאה
+העלו את תוכן התיקייה לשורש ה-Repository הקיים. אין צורך ליצור Repository או פרויקט Vercel חדש.
