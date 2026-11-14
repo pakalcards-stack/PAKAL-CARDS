@@ -1,2 +1,101 @@
-import Image from'next/image';import{Map,BookOpen,ShoppingBag,Users,Info,HelpCircle,Mail,Compass}from'lucide-react';import Header from'@/components/Header';const sets=[[1,2,3,4,5,6,7],[8,9,10,11,12,13,14],[15,16,17,18,19,20,21]];const res=[['water.png','מים','water'],['food.png','אוכל','food'],['time.png','זמן','time'],['morale.png','מורל','morale']];export default function Home(){return <main><Header/><Scene ids={sets[0]} id="top"><div className="hero"><div className="copy"><Image src="/assets/logo.png" alt="פקל נהנים בכל דרך" width={440} height={220} priority/><p>חפיסה אחת. הרבה דרכים ליהנות.<br/>משחקים בבית, יוצאים לשטח.</p><div className="ctas"><a href="#individual"><ShoppingBag/>רכישה ליחידים</a><a href="#groups"><Users/>רכישה לקבוצות</a></div><div className="dock"><Quick I={Map} t="מסלולים" h="#trails"/><Quick I={BookOpen} t="איך משחקים?" h="#how"/><Quick I={Info} t="אודות" h="#about"/><Quick I={HelpCircle} t="שאלות" h="#faq"/><Quick I={Mail} t="צור קשר" h="#contact"/></div></div><div className="product"><Image src="/assets/product.jpg" alt="משחק פקל בטבע" fill priority/></div></div></Scene><Scene ids={sets[1]} id="about"><Panel><Route/><p className="tag">ההרפתקה מתחילה כאן</p><h1>משחקים בבית.<br/><em>יוצאים לשטח.</em></h1><div className="gates"><Gate c="green" t="המסלולים שבחפיסה" s="הכירו את המקומות שמאחורי הקלפים" img="land-10.jpg"/><Gate c="blue" t="איך משחקים?" s="הכירו את המשאבים וההחלטות בדרך" img="logo-illustrated.png" contain/><Gate c="orange" t="רוצים פק״ל?" s="בחרו רכישה ליחידים או לקבוצות" img="product.jpg" contain/></div></Panel></Scene><Scene ids={sets[2]} id="how"><Panel dark><Route/><p className="tag">מה לוקחים לדרך?</p><h2>מים. אוכל.<br/>זמן. מורל.</h2><div className="resources">{res.map(([im,t,c])=><article className={c} key={t}><div><Image src={`/assets/${im}`} alt={t} fill/></div><b>{t}</b></article>)}</div></Panel></Scene><section id="trails" className="trails"><h2>מסלולים מובילים</h2><div className="trailCards">{[4,8,12,16].map((n,i)=><article key={n}><Image src={`/assets/land-${n}.jpg`} alt="נוף ממסלול" fill/><div><b>{['הנגב','ירושלים והסביבה','הגליל העליון','מדבר יהודה'][i]}</b><span>מסלול מומלץ מתוך עולם פק״ל</span></div></article>)}</div></section><section className="purchase"><div id="individual"><ShoppingBag/><h2>רכישה ליחידים</h2><p>לבית, לטיול הבא או כמתנה.</p><a href="#">אני רוצה פק״ל</a></div><div id="groups"><Users/><h2>רכישה לקבוצות</h2><p>לארגונים, צוותים והזמנות מרוכזות.</p><a href="#">קבלת הצעה</a></div></section><section className="info" id="faq"><div><HelpCircle/><h2>שאלות ותשובות</h2></div><div id="contact"><Mail/><h2>צור קשר</h2></div></section><footer><Image src="/assets/logo.png" alt="פקל" width={180} height={90}/></footer></main>}
-function Scene({ids,id,children}:{ids:number[],id:string,children:React.ReactNode}){return <section className="scene" id={id}>{ids.map((n,i)=><i key={n} className={`bg b${i+1}`} style={{backgroundImage:`url('/assets/land-${n}.jpg')`}}/>)}<span className="shade"/>{children}</section>}function Panel({children,dark=false}:{children:React.ReactNode,dark?:boolean}){return <div className={`panel ${dark?'dark':''}`}>{children}</div>}function Route(){return <svg className="route" viewBox="0 0 1000 220"><path d="M10 90 C170 0 210 180 365 115 S560 15 650 130 S820 205 965 100"/><path d="M940 75l45 50m0-50l-45 50"/></svg>}function Quick({I,t,h}:{I:any,t:string,h:string}){return <a href={h}><span><I/></span>{t}</a>}function Gate({c,t,s,img,contain=false}:{c:string,t:string,s:string,img:string,contain?:boolean}){return <article className={`gate ${c}`}><div className="inner"><div className={`gateImg ${contain?'contain':''}`}><Image src={`/assets/${img}`} alt="" fill/></div><h3>{t}</h3><p>{s}</p></div></article>}
+import Image from 'next/image';
+import { BookOpen, ChevronLeft, HelpCircle, Mail, Map, MapPin, ShoppingBag, Users } from 'lucide-react';
+import Header from '@/components/Header';
+
+const resources = [
+  { image: 'morale.png', label: 'מורל', tone: 'morale' },
+  { image: 'time.png', label: 'זמן', tone: 'time' },
+  { image: 'food.png', label: 'אוכל', tone: 'food' },
+  { image: 'water.png', label: 'מים', tone: 'water' },
+];
+const destinations = [
+  { image: 'land-4.jpg', name: 'הנגב', text: 'מצוקים, קניונים ומרחבי מדבר' },
+  { image: 'land-8.jpg', name: 'ירושלים והסביבה', text: 'היסטוריה, טבע ונופים עירוניים' },
+  { image: 'land-12.jpg', name: 'הגליל העליון', text: 'נחלים, חורשים ותצפיות' },
+  { image: 'land-16.jpg', name: 'מדבר יהודה', text: 'מצוקים, נאות מדבר ושקט' },
+];
+const features = [
+  { href: '#trails', title: 'מסלולים', text: 'גלו מסלולים מומלצים בכל הארץ.', Icon: Map },
+  { href: '#how-to-play', title: 'איך משחקים?', text: 'כל מה שצריך לדעת כדי להתחיל.', Icon: BookOpen },
+  { href: '#purchase', title: 'רוצים פק״ל?', text: 'בחרו את האפשרות שמתאימה לכם.', Icon: ShoppingBag },
+];
+
+export default function Home() {
+  return <>
+    <Header />
+    <main id="top">
+      <section className="hero" aria-labelledby="hero-title">
+        <div className="topoLines" aria-hidden="true" />
+        <div className="compassDecor" aria-hidden="true"><span>✦</span></div>
+        <div className="heroContent">
+          <Image className="heroLogo" src="/assets/logo.png" alt="פק״ל, נהנים בכל דרך" width={620} height={330} priority />
+          <h1 id="hero-title">חפיסה אחת. הרבה דרכים ליהנות.</h1>
+          <p className="heroSubtitle">משחקים בבית, יוצאים לשטח.</p>
+          <div className="resourceCards" aria-label="משאבי המשחק">
+            {resources.map(resource => <article className={`resourceCard ${resource.tone}`} key={resource.label}>
+              <Image src={`/assets/${resource.image}`} alt={resource.label} width={92} height={92} />
+              <h2>{resource.label}</h2>
+            </article>)}
+          </div>
+          <div className="heroActions">
+            <a className="actionButton actionRed" href="#purchase"><ShoppingBag aria-hidden="true" />רכישה ליחידים</a>
+            <a className="actionButton actionGreen" href="#purchase"><Users aria-hidden="true" />רכישה לקבוצות</a>
+          </div>
+        </div>
+        <div className="tornEdge" aria-hidden="true" />
+      </section>
+
+      <section className="mapPaper section" aria-label="קיצורי דרך">
+        <div className="contentWidth featureGrid">
+          {features.map(({ href, title, text, Icon }) => <a className="featureCard" href={href} key={title}>
+            <Icon className="featureIcon" aria-hidden="true" /><span><strong>{title}</strong><small>{text}</small></span><ChevronLeft aria-hidden="true" />
+          </a>)}
+        </div>
+      </section>
+
+      <section className="paperSection section" id="trails" aria-labelledby="trails-title">
+        <div className="contentWidth">
+          <div className="sectionTitle"><span /><h2 id="trails-title">מסלולים מובילים</h2><span /></div>
+          <p className="sectionLead">הדרך מתחילה בבחירת הנוף הבא שלכם.</p>
+          <div className="trailCards" dir="rtl">
+            {destinations.map(item => <article className="trailCard" key={item.name}>
+              <div className="trailImage"><Image src={`/assets/${item.image}`} alt={`נוף באזור ${item.name}`} fill sizes="(max-width:760px) 82vw, (max-width:1050px) 50vw, 25vw" /></div>
+              <div className="trailCopy"><h3><MapPin aria-hidden="true" />{item.name}</h3><p>{item.text}</p></div>
+            </article>)}
+          </div>
+          <p className="contentNotice">שמות האזורים מוצגים לפי מפרט העיצוב. לפני פרסום יש לאמת התאמה לתמונות ולנתוני המסלולים המקוריים.</p>
+        </div>
+      </section>
+
+      <section className="story section" id="about">
+        <div className="contentWidth storyGrid">
+          <div className="productFrame"><Image src="/assets/product.jpg" alt="מוצר פק״ל" fill sizes="(max-width:760px) 92vw, 48vw" /></div>
+          <div className="storyCopy"><p className="eyebrow">הסיפור של פק״ל</p><h2>משחקים בבית. יוצאים לשטח.</h2><p>פק״ל מחבר בין עולם משחקי הקלפים לבין האהבה לטבע, למסלולים ולחוויות משותפות.</p><a className="outlineButton" href="#how-to-play">גלו איך משחקים<ChevronLeft aria-hidden="true" /></a></div>
+        </div>
+      </section>
+
+      <section className="paperSection section" id="how-to-play" aria-labelledby="resources-title">
+        <div className="contentWidth"><div className="sectionTitle"><span /><h2 id="resources-title">מה לוקחים לדרך?</h2><span /></div><p className="sectionLead">מים, אוכל, זמן ומורל, ארבעת המשאבים של פק״ל.</p>
+          <div className="resourceCards resourceCardsLarge">{resources.map(resource => <article className="resourceCard" key={resource.label}><Image src={`/assets/${resource.image}`} alt={resource.label} width={122} height={122} /><h3>{resource.label}</h3></article>)}</div>
+        </div>
+      </section>
+
+      <section className="purchase section" id="purchase" aria-labelledby="purchase-title">
+        <div className="contentWidth"><div className="sectionTitle light"><span /><h2 id="purchase-title">בחרו את הדרך שלכם</h2><span /></div>
+          <div className="purchaseGrid">
+            <article><ShoppingBag aria-hidden="true" /><h3>רכישה ליחידים</h3><p>לבית, לטיול הבא או כמתנה.</p><a className="actionButton actionRed" href="#contact">לקבלת קישור רכישה</a></article>
+            <article><Users aria-hidden="true" /><h3>רכישה לקבוצות</h3><p>לארגונים, צוותים והזמנות מרוכזות.</p><a className="actionButton actionGreen" href="#contact">לקבלת הצעה לקבוצה</a></article>
+          </div><p className="checkoutNote">לא הוגדרו במפרט קישורי Checkout אמיתיים. יש להחליף את הקישורים בנקודות החיבור של מערכת הרכישה הקיימת לפני פרסום.</p>
+        </div>
+      </section>
+
+      <section className="paperSection section infoGridSection">
+        <div className="contentWidth infoGrid">
+          <article id="faq" className="paperPanel"><HelpCircle aria-hidden="true" /><h2>שאלות ותשובות</h2><details><summary>למי המשחק מתאים?</summary><p>יש להזין כאן את התשובה המקורית מהאתר הקיים.</p></details><details><summary>איך מתחילים לשחק?</summary><p>יש להזין כאן את הוראות המשחק המקוריות והמאושרות.</p></details></article>
+          <article id="contact" className="paperPanel"><Mail aria-hidden="true" /><h2>צור קשר</h2><p>פרטי קשר לא נמסרו במפרט. כדי לא להמציא מידע, יש לשחזר כאן את הטופס, הדוא״ל והטלפון מהפרויקט הקיים.</p><a className="outlineButton dark" href="mailto:">פתיחת דוא״ל</a></article>
+        </div>
+      </section>
+    </main>
+    <footer className="siteFooter"><div className="contentWidth footerInner"><Image src="/assets/logo.png" alt="פק״ל" width={145} height={70} /><p>נהנים בכל דרך</p><nav aria-label="ניווט תחתון"><a href="#about">על המשחק</a><a href="#trails">מסלולים</a><a href="#contact">צור קשר</a></nav></div></footer>
+  </>;
+}
