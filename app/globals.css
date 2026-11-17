@@ -36,3 +36,69 @@ html{-webkit-text-size-adjust:100%;text-size-adjust:100%;scroll-padding-top:72px
 .aboutCopy{text-align:center!important;max-width:760px}.aboutCopy p{font-family:'David Libre','Frank Ruhl Libre','Noto Serif Hebrew',serif;font-weight:600;font-size:clamp(1.22rem,2.35vw,1.7rem);line-height:1.82;text-align:center!important}.aboutClosing{font-weight:900!important}
 @media(max-width:760px){.aboutParchment{padding:30px 20px 34px;border-width:8px;outline-width:2px;outline-offset:-15px}.aboutParchment:before,.aboutParchment:after{top:18px;bottom:18px;width:7px}.aboutParchment:before{right:12px}.aboutParchment:after{left:12px}.aboutHeader{order:0}.aboutDecor{position:absolute!important;top:115px!important;width:clamp(80px,27vw,130px)!important;height:clamp(115px,38vw,175px)!important;margin:0!important;border-width:4px}.aboutLeft{left:-1px!important;right:auto!important;transform:rotate(-12deg)!important}.aboutRight{right:-1px!important;left:auto!important;transform:rotate(12deg)!important}.aboutHeader{padding-bottom:clamp(125px,41vw,185px)}.aboutLogo{width:min(190px,52%)}.aboutHeader h2{margin:4px 0 0;font-size:clamp(2rem,9vw,2.9rem)}.aboutCopy{order:3;padding-inline:5px}.aboutCopy p{font-size:clamp(1.13rem,4.6vw,1.35rem);line-height:1.8;text-align:center!important}.aboutClover{order:4}.aboutSignature{order:5}}
 @media(max-width:360px){.aboutDecor{top:120px!important;width:27vw!important;height:39vw!important}.aboutHeader{padding-bottom:42vw}.aboutCopy p{font-size:1.08rem}}
+
+/* PAKAL V6: compact mobile About card, desktop unchanged. */
+@media (max-width:760px) {
+  .aboutSection { padding: 28px 10px 42px; }
+  .aboutParchment {
+    display: block;
+    padding: 19px 22px 22px;
+    border-width: 7px;
+    outline-width: 2px;
+    outline-offset: -13px;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  .aboutParchment::before, .aboutParchment::after {
+    top: 13px; bottom: 13px; width: 6px;
+  }
+  .aboutParchment::before { right: 9px; }
+  .aboutParchment::after { left: 9px; }
+  .aboutHeader {
+    width: 100%;
+    padding: 0 0 clamp(106px, 29vw, 135px);
+    text-align: center;
+  }
+  .aboutLogo { width: clamp(100px, 33vw, 145px); height: auto; }
+  .aboutHeader h2 {
+    font-size: clamp(1.75rem, 7.5vw, 2.25rem);
+    line-height: 1.05;
+    margin: -5px 0 0;
+  }
+  .aboutDecor {
+    position: absolute !important;
+    top: clamp(100px, 26vw, 125px) !important;
+    width: clamp(76px, 25vw, 116px) !important;
+    height: clamp(105px, 34vw, 148px) !important;
+    margin: 0 !important;
+    border-width: 4px;
+    border-radius: 10px;
+    box-shadow: 0 0 0 1px #9a754a, 0 8px 15px #2c190d44;
+  }
+  .aboutLeft { left: 8px !important; right: auto !important; transform: rotate(-12deg) !important; }
+  .aboutRight { right: 8px !important; left: auto !important; transform: rotate(12deg) !important; }
+  .aboutCopy {
+    width: 100%; max-width: 100%; padding: 0 3px;
+    margin: 0 auto; text-align: center !important;
+  }
+  .aboutCopy p {
+    font-size: clamp(1.02rem, 4vw, 1.17rem);
+    line-height: 1.55;
+    margin: 0 0 9px;
+    text-align: center !important;
+    overflow-wrap: break-word;
+  }
+  .aboutCopy p:last-child { margin-bottom: 0; }
+  .aboutClover {
+    position: relative; left: auto; bottom: auto;
+    width: 46px; height: 46px; margin: 9px auto 0;
+  }
+  .aboutClover img { width: 46px; height: 46px; object-fit: contain; }
+  .aboutSignature { margin-top: 2px; font-size: .95rem; }
+}
+@media (max-width:360px) {
+  .aboutParchment { padding-inline: 18px; }
+  .aboutHeader { padding-bottom: 112px; }
+  .aboutDecor { top: 99px !important; width: 25vw !important; height: 35vw !important; }
+  .aboutCopy p { font-size: 1rem; line-height: 1.5; }
+}
