@@ -22,8 +22,8 @@ export default function Home() {
     <RoutesCarousel />
     <section id="about" className="aboutSection">
       <div className="aboutParchment">
-        <div className="aboutDecor aboutLeft"><Image src="/assets/about-card-1.jpg" alt="קלף מסלול מקורי של פק״ל" fill sizes="(max-width:760px) 100px, 170px" /></div>
-        <div className="aboutDecor aboutRight"><Image src="/assets/about-card-2.jpg" alt="קלף נוסף מחפיסת פק״ל" fill sizes="(max-width:760px) 100px, 170px" /></div>
+        <div className="aboutDecor aboutLeft"><Image src="/assets/about-adventure-left.jpg" alt="קלף מסלול מקורי של פק״ל" fill sizes="(max-width:760px) 100px, 170px" /></div>
+        <div className="aboutDecor aboutRight"><Image src="/assets/about-adventure-right.jpg" alt="קלף נוסף מחפיסת פק״ל" fill sizes="(max-width:760px) 100px, 170px" /></div>
         <div className="aboutHeader">
           <Image src="/assets/logo.png" alt="פק״ל נהנים בכל דרך" width={230} height={140} className="aboutLogo" />
           <h2>על המשחק</h2>
