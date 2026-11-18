@@ -1,0 +1,10 @@
+On the homepage app/page.tsx:
+1. Add: import SiteAuth from '@/components/SiteAuth';
+2. In the existing hero image section, immediately after its Image element, add <SiteAuth />.
+3. Keep the existing hero image and clickable hotspots unchanged.
+4. Keep <RoutesCarousel /> in the current location.
+5. Replace components/RoutesCarousel.tsx with the included full file.
+6. Append styles from app/extra-styles.css to the end of app/globals.css.
+
+The login control is on the hero image (top left) and does not add another header.
+No permanent manager-login control appears in the routes section. Only authenticated admins see editing controls.
