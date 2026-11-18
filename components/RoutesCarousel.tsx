@@ -57,13 +57,6 @@ export default function RoutesCarousel(){
    const update=()=>setReducedMotion(mq.matches);mq.addEventListener('change',update);
    return()=>mq.removeEventListener('change',update);
  },[]);
- useEffect(()=>{
-   if(count<2||reducedMotion||editing)return;
-   const timer=setInterval(()=>{
-     if(!paused.current&&!document.hidden)goTo(currentIndex.current+1);
-   },5000);
-   return()=>clearInterval(timer);
- },[count,reducedMotion,editing]);
  useEffect(()=>()=>{if(scrollTimer.current)clearTimeout(scrollTimer.current)},[]);
  async function reload(){if(!db)return;const{data,error}=await db.from('routes').select('id,title,description,image_url,sort_order,active').eq('active',true).order('sort_order');if(error){setNotice('טעינת המסלולים נכשלה.');return}setItems((data||[]) as Route[])}
  async function refreshAdmin(){if(!db)return;const{data:{user}}=await db.auth.getUser();if(!user){setAdmin(false);return}const{data,error}=await db.rpc('is_admin');setAdmin(!error&&data===true)}

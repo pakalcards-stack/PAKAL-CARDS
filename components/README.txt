@@ -1,13 +1,3 @@
-PAKAL CARDS - Infinite Carousel v11
-
-Replace this single file:
-  components/RoutesCarousel.tsx
-
-Changes:
-- Infinite scrolling in both directions with seamless recentering.
-- Automatic advancement every 5 seconds.
-- Auto advancement pauses on hover, keyboard focus, while editing, or when the tab is hidden.
-- Reduced-motion setting disables automatic movement.
-- Supabase and admin functionality retained.
-
-No CSS or database changes are required.
+PAKAL CARDS - Infinite Carousel v12 (manual only)
+Replace components/RoutesCarousel.tsx with the complete file.
+Automatic 5-second sliding was removed. Infinite looping, arrow controls, touch swipes, 3D appearance, Supabase and admin editing are unchanged.
