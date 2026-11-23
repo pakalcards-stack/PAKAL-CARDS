@@ -1,0 +1,1 @@
+export default function LegalLinks(){return <footer dir="rtl" style={{display:"flex",flexWrap:"wrap",justifyContent:"center",gap:20,padding:24}}><a href="/terms">תנאי שימוש</a><a href="/privacy">מדיניות פרטיות</a><a href="/accessibility">הצהרת נגישות</a></footer>}
