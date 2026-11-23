@@ -35,12 +35,29 @@ export default function Home() {
       </nav>
       <SiteAuth />
       <style>{`@media (min-width: 761px) {
+        /* Preserve the complete portrait artwork at its native 1024:1536 ratio. */
+        .exactHero {
+          width:100%!important;
+          height:auto!important;
+          min-height:0!important;
+          max-height:none!important;
+          aspect-ratio:1024 / 1536!important;
+          overflow:hidden!important;
+          background:#ede7dd!important;
+        }
+        .exactHero > img {
+          width:100%!important;
+          height:100%!important;
+          object-fit:contain!important;
+          object-position:center top!important;
+        }
+
         /* Keep the original artwork and font exactly as designed. */
         .exactHero .desktopPakalNav {display:none!important;}
         .exactHero .heroImageNav {display:block!important;position:absolute;inset:0;z-index:6;pointer-events:none;}
         .exactHero .heroImageNav .hotspot {
           display:block!important;top:0!important;
-          height:clamp(76px,7.8vw,150px)!important;
+          height:5.9%!important;
           min-height:0!important;pointer-events:auto!important;
           background:transparent!important;
         }
@@ -51,7 +68,7 @@ export default function Home() {
         /* Login sits just below the image menu, not over a menu link. */
         .exactHero .siteAuth {
           position:absolute!important;z-index:8!important;
-          top:clamp(81px,8.1vw,156px)!important;
+          top:6.2%!important;
           left:clamp(8px,1.3vw,25px)!important;
           width:auto!important;height:auto!important;min-height:0!important;
           padding:0!important;background:transparent!important;border:0!important;
