@@ -33,54 +33,46 @@ export default function Home() {
       <nav className="heroImageNav" aria-label="ניווט ראשי מתוך עיצוב האתר">
         {navHotspots.map(item => <a key={item.cls} className={`hotspot ${item.cls}`} href={item.href} aria-label={item.label} title={item.label} {...(item.cls === 'contact' ? {target:'_blank',rel:'noopener noreferrer'} : {})}><span className="srOnly">{item.label}</span></a>)}
       </nav>
-      <div className="desktopPakalNav" dir="rtl" aria-label="ניווט ראשי למחשב">
-        <a href="/" className="desktopHome"><span aria-hidden="true">⌂</span> דף הבית</a>
-        <a href="#about">על המשחק</a>
-        <a href="/rules">איך משחקים?</a>
-        <a href="#routes">מסלולים</a>
-        <a href="#faq">שאלות ותשובות</a>
-        <a href="https://wa.me/972546699435" target="_blank" rel="noopener noreferrer">צור קשר</a>
-        <a href="#purchase" className="desktopCart" aria-label="סל קניות" title="סל קניות"><span aria-hidden="true">🛒</span></a>
-      </div>
       <SiteAuth />
       <style>{`@media (min-width: 761px) {
-        .exactHero .heroImageNav {display:none!important;}
-        .exactHero .desktopPakalNav {
-          position:absolute;top:0;left:0;right:0;z-index:6;
-          height:clamp(76px,7.8vw,150px);display:flex;align-items:stretch;
-          padding-left:clamp(110px,9.5vw,180px);background:#f3efe5;
-          border-bottom:2px solid #d2cab8;box-shadow:0 3px 8px #0000001c;
-          font-family:Arial,'Noto Sans Hebrew',sans-serif;
+        /* Keep the original artwork and font exactly as designed. */
+        .exactHero .desktopPakalNav {display:none!important;}
+        .exactHero .heroImageNav {display:block!important;position:absolute;inset:0;z-index:6;pointer-events:none;}
+        .exactHero .heroImageNav .hotspot {
+          display:block!important;top:0!important;
+          height:clamp(76px,7.8vw,150px)!important;
+          min-height:0!important;pointer-events:auto!important;
+          background:transparent!important;
         }
-        .exactHero .desktopPakalNav a {
-          display:flex;align-items:center;justify-content:center;flex:1 1 0;
-          min-width:0;padding:8px 10px;color:#263c2a;font-weight:800;
-          font-size:clamp(14px,1.8vw,31px);text-align:center;
-          border-left:1px solid #d1cbbf;transition:background .18s ease;
+        .exactHero .heroImageNav .hotspot:focus-visible {
+          outline:3px solid #245439!important;outline-offset:-4px;
+          background:#fff3!important;
         }
-        .exactHero .desktopPakalNav a:hover,.exactHero .desktopPakalNav a:focus-visible {background:#e4e5d8;outline-offset:-3px;}
-        .exactHero .desktopPakalNav .desktopHome {flex:1.35;background:#e7e7d9;gap:12px;}
-        .exactHero .desktopPakalNav .desktopHome span {font-size:clamp(28px,3.4vw,64px);line-height:1;}
-        .exactHero .desktopPakalNav .desktopCart {flex:.65;}
-        .exactHero .desktopPakalNav .desktopCart span {font-size:clamp(28px,3.2vw,60px);}
-        .exactHero .siteAuth {position:absolute!important;z-index:8!important;
-          top:0!important;left:0!important;width:clamp(110px,9.5vw,180px)!important;
-          height:clamp(76px,7.8vw,150px)!important;min-height:0!important;
-          display:flex!important;align-items:center!important;justify-content:center!important;
-          padding:0!important;background:#f3efe5!important;
-          border-right:1px solid #d1cbbf!important;}
-        .exactHero .siteAuth button {width:100%!important;height:100%!important;
-          min-height:0!important;padding:8px!important;margin:0!important;
-          border:0!important;border-radius:0!important;box-shadow:none!important;
-          background:transparent!important;color:#263c2a!important;
-          font-size:clamp(13px,1.5vw,25px)!important;font-weight:800!important;
-          display:flex!important;flex-direction:column!important;gap:4px!important;}
-        .exactHero .siteAuth button:hover,.exactHero .siteAuth button:focus-visible {background:#e4e5d8!important;}
-        .exactHero .siteAuth button svg {width:clamp(24px,2.7vw,48px)!important;height:clamp(24px,2.7vw,48px)!important;}
+        /* Login sits just below the image menu, not over a menu link. */
+        .exactHero .siteAuth {
+          position:absolute!important;z-index:8!important;
+          top:clamp(81px,8.1vw,156px)!important;
+          left:clamp(8px,1.3vw,25px)!important;
+          width:auto!important;height:auto!important;min-height:0!important;
+          padding:0!important;background:transparent!important;border:0!important;
+        }
+        .exactHero .siteAuth button {
+          display:flex!important;flex-direction:row!important;align-items:center!important;
+          gap:8px!important;min-height:44px!important;height:auto!important;width:auto!important;
+          padding:8px 15px!important;margin:0!important;
+          background:linear-gradient(145deg,#f8efdc,#e4d2ae)!important;
+          color:#29442f!important;border:2px solid #967348!important;
+          border-radius:12px!important;box-shadow:0 5px 14px #32211245!important;
+          font-family:'David Libre','Noto Serif Hebrew',serif!important;
+          font-size:clamp(15px,1.15vw,19px)!important;font-weight:800!important;
+        }
+        .exactHero .siteAuth button svg {width:21px!important;height:21px!important;}
         .exactHero .siteAuth button span {display:inline!important;}
+        .exactHero .siteAuth button:hover {background:#f4e2bd!important;}
       }
-      @media (max-width:760px) {.exactHero .desktopPakalNav {display:none!important;}}
-      `}</style>
+      @media (max-width:760px) {
+        .exactHero .desktopPakalNav {display:none!important;}
+      }`}</style>
     </section>
     <RoutesCarousel />
     <section id="about" className="aboutSection">
