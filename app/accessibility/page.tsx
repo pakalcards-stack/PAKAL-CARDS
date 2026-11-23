@@ -1,0 +1,5 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = { title: "הצהרת נגישות | פק״ל" };
+export default function Page(){return <main dir="rtl" style={{maxWidth:850,margin:"0 auto",padding:"60px 24px",fontFamily:"inherit",lineHeight:1.85}}><a href="/">חזרה לאתר</a><h1 style={{fontSize:36,margin:"24px 0"}}>הצהרת נגישות</h1><section style={marginBottom:28}><h2 style={fontSize:23,marginBottom:8}>מחויבות לנגישות</h2><p>אנו פועלים כדי שתכני אתר פק״ל יהיו נוחים לשימוש גם לאנשים עם מוגבלויות.</p></section>
+<section style={marginBottom:28}><h2 style={fontSize:23,marginBottom:8}>שימוש באתר</h2><p>האתר כולל טקסט, תמונות וממשקי ניווט. ניתן להשתמש בפונקציות הנגישות של הדפדפן ומערכת ההפעלה, כגון הגדלת תצוגה וניווט באמצעות מקלדת, בהתאם לתמיכה של כל רכיב.</p></section>
+<section style={marginBottom:28}><h2 style={fontSize:23,marginBottom:8}>דיווח על קושי</h2><p>אם נתקלתם בקושי בנגישות האתר, ניתן לפנות אלינו באמצעות ערוץ יצירת הקשר המוצג באתר ולציין את העמוד, תיאור הבעיה והאמצעי שבו השתמשתם. נבחן את הפנייה.</p></section><p><a href="/">חזרה לדף הבית</a></p></main>}

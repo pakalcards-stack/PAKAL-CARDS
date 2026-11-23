@@ -1,0 +1,6 @@
+import type { Metadata } from "next";
+export const metadata: Metadata = { title: "מדיניות פרטיות | פק״ל" };
+export default function Page(){return <main dir="rtl" style={{maxWidth:850,margin:"0 auto",padding:"60px 24px",fontFamily:"inherit",lineHeight:1.85}}><a href="/">חזרה לאתר</a><h1 style={{fontSize:36,margin:"24px 0"}}>מדיניות פרטיות</h1><section style={marginBottom:28}><h2 style={fontSize:23,marginBottom:8}>מטרת המסמך</h2><p>מסמך זה מתייחס לשימוש באתר פק״ל ולמידע שהמבקר בוחר למסור באמצעות אמצעי יצירת הקשר או ממשקי החשבון הזמינים באתר.</p></section>
+<section style={marginBottom:28}><h2 style={fontSize:23,marginBottom:8}>פנייה אלינו</h2><p>כאשר מבקר פונה אלינו, פרטים שהוא בוחר למסור במסגרת הפנייה עשויים לשמש למענה ולטיפול בפנייה.</p></section>
+<section style={marginBottom:28}><h2 style={fontSize:23,marginBottom:8}>חשבונות משתמש</h2><p>כאשר נעשה שימוש בממשקי הרשמה או התחברות הזמינים באתר, הפרטים הנמסרים בהם משמשים לצורך הפעולה המבוקשת וניהול הגישה לחשבון.</p></section>
+<section style={marginBottom:28}><h2 style={fontSize:23,marginBottom:8}>בקשות בנושא פרטיות</h2><p>לבירורים או לבקשות בנוגע למידע אישי ניתן לפנות דרך ערוץ יצירת הקשר המוצג באתר. בקשות יטופלו בהתאם לדין החל.</p></section><p><a href="/">חזרה לדף הבית</a></p></main>}
